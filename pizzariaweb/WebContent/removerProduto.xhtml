@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+	  
+<ui:composition template="/templateGeral.xhtml">
+	<ui:define name="content">
+		<h:form id="formPrincipal">		
+			<div id="fundo">
+				<div id="conteudo">
+					<p:panel id="pnlRemover" header="Remove Produto" styleClass="listaPedidos">
+					
+				       <h:dataTable id="tbListaProdutos" value="#{removeProdutoMB.listaProdutos}" var="produto"
+						        	rendered="#{not empty removeProdutoMB.listaProdutos}"
+						        	styleClass="dados" rowClasses="impar, par" rows="20" >
+				        	<h:column>
+				        		<f:facet name="header">Nome</f:facet>
+								<h:outputText value="#{produto.nmProduto}" />
+				        	</h:column>
+				        	<h:column>
+				        		<f:facet name="header">Descrição</f:facet>
+								<h:outputText value="#{produto.deProduto}" />
+				        	</h:column>
+				        	<h:column>
+				        		<f:facet name="header">Preço</f:facet>
+								<h:outputText value="#{produto.precoProduto}" style="text-align: center;">
+									<f:convertNumber type="currency" currencySymbol="R$" locale="pt_BR" />
+								</h:outputText>
+				        	</h:column>
+				        	<p:column>
+						    	<f:facet name="header">Produto</f:facet>
+						    	<p:commandButton value="Remover" action="#{removeProdutoMB.remove(produto)}" update=":formPrincipal:pnlRemover" />
+						    </p:column>
+						</h:dataTable>
+			        </p:panel>
+				</div>
+		   
+ 				<div id="carrinho"></div>
+				
+			</div>
+	    </h:form>
+	</ui:define>
+</ui:composition>
+</html>

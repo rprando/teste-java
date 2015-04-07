@@ -38,12 +38,13 @@
 					    		<f:selectItems  value="#{novoProdutoMB.tiposDeProdutos}" />
 					    	</p:selectOneMenu>
 					    	<p:message for="tipo" />
+					    	
+					    	<br />
+					    	<p:outputPanel style="margin-top: 10px;">
+						        <p:commandButton value="Salvar" action="#{novoProdutoMB.grava}" update="pnlAdicionar"
+						        	style="float: right;" styleClass="btnOutros" />
+				        	</p:outputPanel>
 				        </p:panelGrid>
-				        
-				        <p:outputPanel style="margin-top: 10px;">
-					        <p:commandButton value="Salvar" action="#{novoProdutoMB.grava}" update="pnlAdicionar"
-					        	style="float: right;" styleClass="btnOutros" />
-				        </p:outputPanel>
 			        </p:panel>
 				</div>
 		   

@@ -14,7 +14,8 @@
 			        <p:panel header="Todas os Produtos" styleClass="listaPedidos">
 			        	<p:tabView id="tabProdutos" scrollable="true" styleClass="tab">
 			        		<p:tab title="Pizzas">
-					        	<p:outputLabel value="Nenhuma pizza na lista." rendered="#{empty produtosMB.produtoPizza}"/>
+					        	<p:outputLabel value="Nenhuma pizza na lista." rendered="#{empty produtosMB.produtoPizza}" />
+					        	<p:outputLabel value="Experimente a melhor pizza da região." rendered="#{not empty produtosMB.produtoPizza}" />
 						        <h:dataTable value="#{produtosMB.produtoPizza}" var="produto"
 						        	rendered="#{not empty produtosMB.produtoPizza}"
 						        	styleClass="dados" rowClasses="impar, par">
@@ -44,7 +45,8 @@
 							</p:tab>
 							
 							<p:tab title="Bebidas">
-					        	<p:outputLabel value="Nenhuma bebida na lista." rendered="#{empty produtosMB.produtoBebida}"/>
+					        	<p:outputLabel value="Nenhuma bebida na lista." rendered="#{empty produtosMB.produtoBebida}" />
+					        	<p:outputLabel value="Bebidas geladas para acompanhar com a sua pizza." rendered="#{not empty produtosMB.produtoBebida}" />
 						        <h:dataTable value="#{produtosMB.produtoBebida}" var="produto"
 						        	rendered="#{not empty produtosMB.produtoBebida}"
 						        	styleClass="dados" rowClasses="impar, par">
@@ -75,6 +77,7 @@
 							
 							<p:tab title="Sobremesas">
 					        	<p:outputLabel value="Nenhuma sobremesa na lista." rendered="#{empty produtosMB.produtoSobremesa}"/>
+					        	<p:outputLabel value="Sobremesas deliciosas para você escolher." rendered="#{not empty produtosMB.produtoSobremesa}" />
 						        <h:dataTable value="#{produtosMB.produtoSobremesa}" var="produto"
 						        	rendered="#{not empty produtosMB.produtoSobremesa}"
 						        	styleClass="dados" rowClasses="impar, par">
@@ -136,10 +139,12 @@
  				</div>
  				
  				<p:dialog header="Confirmação" widgetVar="dlgFinalizarPedido" modal="true" height="100" resizable="false">
-	    			<h:outputText value="Pedido realizado com sucesso." />
-	    			<p:commandButton value="Sim" action="#{produtosMB.finalizarPedido}"
-	    				style="margin-left: 10px;" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" 
-	    				update=":formPrincipal" onclick="dlgFinalizarPedido.hide();" />
+	    			<h:outputText value="Pedido realizado com sucesso." /><br />
+	    			<p:outputPanel style="text-align: center; margin-top: 20px;">
+		    			<p:commandButton value="Ok" action="#{produtosMB.finalizarPedido}"
+		    				style="margin-left: 10px;" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" 
+		    				update=":formPrincipal" onclick="dlgFinalizarPedido.hide();" />
+	    			</p:outputPanel>
 				</p:dialog>
 			
 			</div>

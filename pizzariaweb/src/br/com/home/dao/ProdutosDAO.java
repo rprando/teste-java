@@ -24,14 +24,9 @@ public class ProdutosDAO implements Serializable{
 	}
 	
 	public void remove(Produtos produto) {
-		Produtos produtoParaRemover = this.manager.find(Produtos.class, produto.getCdProduto());
-		this.manager.remove(produtoParaRemover);
+		manager.remove(manager.merge(produto));
 	}
-	
-	public void update(Produtos produto){
-		this.manager.merge(produto);
-	}
-	
+		
 	public List<Produtos> listAll( ) {
 		return this.manager.createQuery("SELECT p FROM Produtos p",
 				Produtos.class).getResultList();

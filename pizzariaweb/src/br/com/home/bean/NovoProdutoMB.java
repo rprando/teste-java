@@ -22,11 +22,8 @@ public class NovoProdutoMB implements Serializable{
 	private ProdutosDAO produtoDao;
 	
 	public String grava(){
-		
 		if(this.produto.getCdProduto() == null){
 			produtoDao.create(produto);
-		}else{
-			produtoDao.update(produto);
 		}
 		
 		return "produtos?faces-redirect=true";
