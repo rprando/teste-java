@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+	  
+<ui:composition template="/templateGeral.xhtml">
+	<ui:define name="content">
+		<h:form id="formPrincipal">		
+			<div id="fundo">
+				<div id="conteudo">
+					<p:panel header="Novo Produto" styleClass="listaPedidos">
+					
+				        <p:panelGrid id="pnlAdicionar" columns="3" styleClass="semBorda">
+				        	<p:outputLabel for="nome" value="Nome: " style="float: right;" />
+				        	<p:inputText id="nome" value="#{novoProdutoMB.produto.nmProduto}"
+				        		required="true" requiredMessage="O campo Nome é obrigatório."
+				        		placeholder="Nome do produto" />
+				        	<p:message for="nome" />
+				        	
+							<p:outputLabel for="descricao" value="Descrição: " style="float: right;" />
+							<p:inputText id="descricao" value="#{novoProdutoMB.produto.deProduto}"
+								required="true" requiredMessage="O campo Descrição é obrigatório."
+								placeholder="Descrição do produto" />
+							<p:message for="descricao" />
+							
+							<p:outputLabel for="preco" value="Preço: " style="float: right;" />
+							<p:inputText id="preco" value="#{novoProdutoMB.produto.precoProduto}" 
+								required="true" requiredMessage="O campo Preço é obrigatório." />
+							<p:message for="preco" />
+							
+							<p:outputLabel for="tipo" value="Tipo: " style="float: right;" />
+					    	<p:selectOneMenu id="tipo" value="#{novoProdutoMB.produto.tipoProduto}"
+					    		required="true" requiredMessage="Selecionar qual o tipo de produto.">
+					    		<f:selectItem itemLabel="Escolha o tipo" itemValue="" noSelectionOption="true"/>
+					    		<f:selectItems  value="#{novoProdutoMB.tiposDeProdutos}" />
+					    	</p:selectOneMenu>
+					    	<p:message for="tipo" />
+				        </p:panelGrid>
+				        
+				        <p:outputPanel style="margin-top: 10px;">
+					        <p:commandButton value="Voltar" action="produtos?faces-redirect=true"
+					        	styleClass="btnOutros" />
+					        <p:commandButton value="Salvar" action="#{novoProdutoMB.grava}" update="pnlAdicionar"
+					        	style="float: right;" styleClass="btnOutros" />
+				        </p:outputPanel>
+			        </p:panel>
+				</div>
+		   
+ 				<div id="carrinho"></div>
+				
+			</div>
+	    </h:form>
+	</ui:define>
+</ui:composition>
+</html>

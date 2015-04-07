@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+	  
+<ui:composition template="/templateGeral.xhtml">
+	<ui:define name="content">
+		<h:form id="formPrincipal">		
+			<div id="fundo">
+				<div id="conteudo">
+			        <p:panel header="Todas os Produtos" styleClass="listaPedidos">
+			        	<p:tabView id="tabProdutos" scrollable="true" styleClass="tab">
+			        		<p:tab title="Pizzas">
+					        	<p:outputLabel value="Nenhuma pizza na lista." rendered="#{empty produtosMB.produtoPizza}"/>
+						        <h:dataTable value="#{produtosMB.produtoPizza}" var="produto"
+						        	rendered="#{not empty produtosMB.produtoPizza}"
+						        	styleClass="dados" rowClasses="impar, par">
+						        	<h:column>
+						        		<f:facet name="header">Nome</f:facet>
+										<h:outputText value="#{produto.nmProduto}" />
+						        	</h:column>
+						        	<h:column>
+						        		<f:facet name="header">Descrição</f:facet>
+										<h:outputText value="#{produto.deProduto}" />
+						        	</h:column>
+						        	<h:column>
+						        		<f:facet name="header">Preço</f:facet>
+										<h:outputText value="#{produto.precoProduto}" style="text-align: center;">
+											<f:convertNumber type="currency" currencySymbol="R$" locale="pt_BR" />
+										</h:outputText>
+						        	</h:column>
+						        	<p:column>
+						        		<f:facet name="header">Pedido</f:facet>
+						        		<p:commandButton value="Adicionar" action="#{produtosMB.adicionaProdutoPizza}" 
+						        			style="text-align: center;" styleClass="btnAdicionarFinalizar"
+						        			update=":formPrincipal:seuPedido, :formPrincipal:pnlFinalizarPedido, :formPrincipal:pnlTotal " >
+						        			<f:setPropertyActionListener target="#{produtosMB.produtoSelecionado}" value="#{produto}" />
+						        		</p:commandButton>
+						        	</p:column>
+						        </h:dataTable>
+							</p:tab>
+							
+							<p:tab title="Bebidas">
+					        	<p:outputLabel value="Nenhuma bebida na lista." rendered="#{empty produtosMB.produtoBebida}"/>
+						        <h:dataTable value="#{produtosMB.produtoBebida}" var="produto"
+						        	rendered="#{not empty produtosMB.produtoBebida}"
+						        	styleClass="dados" rowClasses="impar, par">
+						        	<h:column>
+						        		<f:facet name="header">Nome</f:facet>
+										<h:outputText value="#{produto.nmProduto}" />
+						        	</h:column>
+						        	<h:column>
+						        		<f:facet name="header">Descrição</f:facet>
+										<h:outputText value="#{produto.deProduto}" />
+						        	</h:column>
+						        	<h:column>
+						        		<f:facet name="header">Preço</f:facet>
+										<h:outputText value="#{produto.precoProduto}" style="text-align: center;">
+											<f:convertNumber type="currency" currencySymbol="R$" locale="pt_BR" />
+										</h:outputText>
+						        	</h:column>
+						        	<p:column>
+						        		<f:facet name="header">Pedido</f:facet>
+						        		<p:commandButton value="Adicionar" action="#{produtosMB.adicionaProdutoBebida}" 
+						        			style="text-align: center;" styleClass="btnAdicionarFinalizar"
+						        			update=":formPrincipal:seuPedido, :formPrincipal:pnlFinalizarPedido, :formPrincipal:pnlTotal " >
+						        			<f:setPropertyActionListener target="#{produtosMB.produtoSelecionado}" value="#{produto}" />
+						        		</p:commandButton>
+						        	</p:column>
+						        </h:dataTable>
+							</p:tab>
+							
+							<p:tab title="Sobremesas">
+					        	<p:outputLabel value="Nenhuma sobremesa na lista." rendered="#{empty produtosMB.produtoSobremesa}"/>
+						        <h:dataTable value="#{produtosMB.produtoSobremesa}" var="produto"
+						        	rendered="#{not empty produtosMB.produtoSobremesa}"
+						        	styleClass="dados" rowClasses="impar, par">
+						        	<h:column>
+						        		<f:facet name="header">Nome</f:facet>
+										<h:outputText value="#{produto.nmProduto}" />
+						        	</h:column>
+						        	<h:column>
+						        		<f:facet name="header">Descrição</f:facet>
+										<h:outputText value="#{produto.deProduto}" />
+						        	</h:column>
+						        	<h:column>
+						        		<f:facet name="header">Preço</f:facet>
+										<h:outputText value="#{produto.precoProduto}" style="text-align: center;">
+											<f:convertNumber type="currency" currencySymbol="R$" locale="pt_BR" />
+										</h:outputText>
+						        	</h:column>
+						        	<p:column>
+						        		<f:facet name="header">Pedido</f:facet>
+						        		<p:commandButton value="Adicionar" action="#{produtosMB.adicionaProdutoSobremesa}" 
+						        			style="text-align: center;" styleClass="btnAdicionarFinalizar"
+						        			update=":formPrincipal:seuPedido, :formPrincipal:pnlFinalizarPedido, :formPrincipal:pnlTotal " >
+						        			<f:setPropertyActionListener target="#{produtosMB.produtoSelecionado}" value="#{produto}" />
+						        		</p:commandButton>
+						        	</p:column>
+						        </h:dataTable>
+							</p:tab>      
+						</p:tabView>
+			        </p:panel> 
+				</div>
+		   
+ 				<div id="carrinho">
+ 					<p:panel header="Seu Pedido" styleClass="listaPedidos">
+		 				<p:dataList id="seuPedido" value="#{produtosMB.listaPedido}" var="produtoPedido" type="ordered"
+		 					emptyMessage="Escolha sua pizza no menu ao lado!" styleClass="listaPedidos">
+		 					
+		 					<h:outputText value="#{produtoPedido.nmProduto}" style="padding-right: 10px;" />
+		 					<h:outputText value="#{produtoPedido.precoProduto}" style="padding-right: 10px;">
+		 						<f:convertNumber type="currency" currencySymbol="R$" locale="pt_BR" />
+		 					</h:outputText>
+		 					<h:commandLink value="Remover" action="#{produtosMB.removeProdutoPedido}" style="float: right; color: red;">
+		 						<f:setPropertyActionListener target="#{produtosMB.pedidoSelecionado}" value="#{produtoPedido}" />
+		 					</h:commandLink>
+		 				</p:dataList>
+		 				
+		 				<p:outputPanel id="pnlTotal" style="margin-top: 20px; float: right;">
+		 					<h:outputText value="Total: " />
+			 				<h:outputText value="#{produtosMB.precoTotal}">
+			 					<f:convertNumber type="currency" currencySymbol="R$" locale="pt_BR" />
+			 				</h:outputText>
+		 				</p:outputPanel>
+		 				
+	 					<p:outputPanel id="pnlFinalizarPedido" style="margin-top: 80px; text-align: center;">
+	 						<p:commandButton value="Finalizar Pedido"
+	 							onclick="PF('dlgFinalizarPedido').show();"
+	 							styleClass="btnAdicionarFinalizar" disabled="#{empty produtosMB.listaPedido}"/>
+	 					</p:outputPanel>
+ 					</p:panel>
+ 				</div>
+ 				
+ 				<p:dialog header="Confirmação" widgetVar="dlgFinalizarPedido" modal="true" height="100" resizable="false">
+	    			<h:outputText value="Pedido realizado com sucesso." />
+	    			<p:commandButton value="Sim" action="#{produtosMB.finalizarPedido}"
+	    				style="margin-left: 10px;" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" 
+	    				update=":formPrincipal" onclick="dlgFinalizarPedido.hide();" />
+				</p:dialog>
+			
+			</div>
+	    </h:form>
+	</ui:define>
+</ui:composition>
+</html>

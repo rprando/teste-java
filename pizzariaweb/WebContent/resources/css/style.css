@@ -1,0 +1,212 @@
+* { margin:0px; padding:0px; }
+
+body{ 
+	font-size:16px; 
+	color:#000; 
+	font-family:helvetica, arial, sans-serif;
+	padding-bottom: 30px;
+	background-color: #fcf8e3;
+	width: 100%;
+}
+
+#cabecalho, header{
+	background-color:#6D85F2;
+	color: #FFF;
+	height: 60px;
+	line-height: 60px;
+	position: relative;
+	padding-left: 100px;
+}
+
+#menu{
+	height:30px;
+	line-height:30px;
+	background-color: #FFF;
+	border-bottom: 1px solid #333;
+	padding-left: 95px;
+}
+
+#menu a {
+		color: #333;
+		padding-left: 5px;
+		padding-right: 5px;
+		text-decoration: none;
+}
+
+#menu a:hover {
+		text-decoration: underline;
+}
+
+#fundo{
+	position: relative;
+	width: 90%;
+	padding: 0px 0px 0px 50px;
+}
+
+#conteudo, section {
+	width:60%;
+	height:auto;
+	margin: 10px 5px 10px 0px;
+	float: left;
+}
+
+#carrinho{
+	width:30%;
+	height:auto;
+	margin-top: 10px;
+	float: right;
+	display: block;
+}
+
+#rodape, footer { 
+	background-color:#6D85F2;
+	width:100%;
+	position:fixed;
+	bottom: 0;
+	padding:10px 0px;
+	text-align: center;
+	font-size:10px; 
+	color:#FFF;
+	display: block;
+}
+
+table.dados{
+	height:auto;
+	margin-bottom: 10px;
+	width:100%;
+	font-size: 12px;
+}
+
+table.dados tr th{
+	background-color:#0B0F19;
+	color:#fff;
+	color:1em;
+	padding:10px;
+}
+
+table.dados tr td{
+	padding:5px 10px;
+}
+
+.par  {
+	background-color: #F0F9FF;
+}
+
+.impar {
+	background:none repeat scroll 0 0 #DDDDDD;
+}
+
+h2{
+	display:block;
+	position:relative;
+	overflow:hidden;
+	color:#2B2926;
+	text-align:left;
+	height:auto;
+	margin-bottom:10px;
+	border-bottom: 1px solid;
+	clear: both;
+	font-size: x-large;
+	width: 100%;
+}
+
+.listaPedidos .ui-widget-header{
+	background: #0B0F19;
+	color: #FFF;
+	font-weight: normal;
+	font-size: 14px;
+	text-shadow: none;
+	border: none;
+}
+
+.ui-datalist-item{
+	font-size: 14px;
+	padding-top: 10px;
+}
+.ui-datalist-item a{
+	text-decoration: none;
+}
+.ui-datalist-item a:hover{
+	text-decoration: underline;
+}
+.ui-datalist-empty-message{
+	padding: 10px;
+	font-size: 12px;
+	color: gray;
+	text-align: center;
+}
+.ui-widget-content{
+	border: none;
+}
+
+.btnAdicionarFinalizar.ui-state-default, 
+.btnAdicionarFinalizar.ui-widget-content .ui-state-default, 
+.btnAdicionarFinalizar.ui-widget-header .ui-state-default{
+	border: none;
+  	background: green;
+    font-weight: normal;
+  	color: #FFF;
+ 	text-shadow: none;
+}
+
+.btnOutros.ui-state-default, 
+.btnOutros.ui-widget-content .ui-state-default, 
+.btnOutros.ui-widget-header .ui-state-default{
+	border: none;
+  	background: #00b07a;
+    font-weight: normal;
+  	color: #FFF;
+ 	text-shadow: none;
+}
+
+.ui-panelgrid .ui-widget {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.ui-corner-all{
+	border-radius: 0px;
+}
+
+.semBorda tr, .semBorda td {  
+    border: none !important;
+    padding: 0 10px 4px 0 !important;
+}
+
+.ui-messages-error-summary{
+	font-size: 14px;
+	font-weight: normal;
+}
+.ui-outputlabel{
+	font-size: 14px !important;
+}
+
+.tab .ui-tabs-nav{
+	background: #fff !important;
+}
+
+.tab.ui-state-default {
+	background-color: red !important;
+}
+
+.tab .ui-tabs .ui-tabs-nav .ui-tabs-selected{
+	border-bottom: none !important;
+	background: red !important;
+}
+
+.tab .ui-tabs-nav .ui-state-hover {
+	background: #9CBDE5 !important;
+}
+
+.tab li.ui-state-default.ui-corner-top{
+	background: #FFF !important;
+}
+.tab .ui-tabs-panel{
+	padding: 10px 0 0 0 !important;
+}
+.ui-dialog .ui-dialog-titlebar{
+	background: #0B0F19 !important;
+	color: #FFF;
+	font-size: 14px;
+	font-weight: normal;
+}
